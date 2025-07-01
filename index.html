@@ -1,1 +1,83 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMXAR Webhook Spammer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
+  <div class="container mx-auto p-6 max-w-4xl">
+    <h1 class="text-4xl font-bold text-center mb-8">LMXAR Discord Webhook Spammer</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Input Form -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <form id="webhookForm" class="space-y-4">
+          <div>
+            <label for="webhookUrl" class="block text-sm font-medium">Webhook URL</label>
+            <input
+              type="url"
+              id="webhookUrl"
+              class="w-full p-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="https://discord.com/api/webhooks/..."
+              required
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium">Message</label>
+            <textarea
+              id="message"
+              class="w-full p-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <label for="delay" class="block text-sm font-medium">Delay (milliseconds)</label>
+            <input
+              type="number"
+              id="delay"
+              class="w-full p-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="1000"
+              min="100"
+              required
+            />
+          </div>
+          <div class="flex gap-4">
+            <button
+              type="submit"
+              id="startButton"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md transition"
+            >
+              Start Spamming
+            </button>
+            <button
+              type="button"
+              id="stopButton"
+              class="w-full bg-red-600 hover:bg-red-700 text-white p-2 rounded-md transition"
+              disabled
+            >
+              Stop Spamming
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Webhook Info -->
+      <div id="webhookInfo" class="bg-gray-800 p-6 rounded-lg shadow-lg hidden">
+        <h2 class="text-2xl font-semibold mb-4">Webhook Info</h2>
+        <img id="avatar" class="w-16 h-16 rounded-full mb-4" alt="Webhook Avatar" />
+        <p><strong>Name:</strong> <span id="name">N/A</span></p>
+        <p><strong>Token:</strong> <span id="token">N/A</span></p>
+      </div>
+    </div>
+    <!-- Message Box -->
+    <div
+      id="messageBox"
+      class="fixed bottom-4 right-4 p-4 rounded-md hidden transition-opacity duration-300"
+    ></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
