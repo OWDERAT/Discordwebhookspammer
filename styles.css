@@ -22,3 +22,11 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+#deleteModal {
+  transition: opacity 0.3s ease;
+}
+
+#deleteModal.hidden {
+  display: none;
+}
